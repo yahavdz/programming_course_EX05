@@ -1,5 +1,4 @@
-package DL;
-
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -15,12 +14,22 @@ public class Order {
 
     private long customrId;
 
-    public Order(String orderInfo) throws Exception {
+    public Order(String orderInfo) {
         String[] splitString = orderInfo.split(" ");
         this.orderId = parseInt(splitString[1]);
-        this.orderDate = new SimpleDateFormat("dd/MM/yyyy").parse(splitString[4]);
-        this.deliveryDate = new SimpleDateFormat("dd/MM/yyyy").parse(splitString[7]);
+        try {
+            this.orderDate = new SimpleDateFormat("dd/MM/yyyy").parse(splitString[4]);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        try {
+            this.deliveryDate = new SimpleDateFormat("dd/MM/yyyy").parse(splitString[7]);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         this.status = OrderStatus.valueOf(splitString[9]);
+
+        this.customrId = Long.parseLong(splitString[12]);
     }
 
     public Order(long Oid, Date OorderDate, Date OdeliveryDate, OrderStatus Ostatus, long OcustomrId)

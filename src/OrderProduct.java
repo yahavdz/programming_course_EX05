@@ -1,5 +1,3 @@
-package DL;
-
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
 
@@ -11,9 +9,9 @@ public class OrderProduct {
     public OrderProduct(String orderInfo)
     {
         String[] splitString = orderInfo.split(" ");
-        this.orderId = parseInt(splitString[0]);
-        this.productId = parseInt(splitString[1]);
-        this.quantity = parseInt(splitString[2]);    }
+        this.orderId = parseInt(splitString[2]);
+        this.productId = parseInt(splitString[5]);
+        this.quantity = parseInt(splitString[7]);    }
 
     public OrderProduct(long oId, long pId, int quantity)
     {

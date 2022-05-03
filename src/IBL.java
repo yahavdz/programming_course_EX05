@@ -1,9 +1,3 @@
-package BL;
-
-import DL.Customer;
-import DL.Order;
-import DL.Product;
-import DL.ProductCategory;
 
 import java.util.List;
 
